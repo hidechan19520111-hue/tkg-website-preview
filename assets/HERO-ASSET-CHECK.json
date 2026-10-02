@@ -1,0 +1,93 @@
+[
+  {
+    "file": "hero-index.png",
+    "label": "トップ：新しい可能性",
+    "width": 1672,
+    "height": 941,
+    "bytes": 2195316,
+    "opaque": true,
+    "meanRGB": [
+      49.94,
+      44.85,
+      41.37
+    ]
+  },
+  {
+    "file": "hero-about.png",
+    "label": "会社概要：つながりと歩み",
+    "width": 1672,
+    "height": 941,
+    "bytes": 2063280,
+    "opaque": true,
+    "meanRGB": [
+      41.76,
+      36.28,
+      32.52
+    ]
+  },
+  {
+    "file": "hero-services.png",
+    "label": "事業内容：混乱から解決へ",
+    "width": 1672,
+    "height": 940,
+    "bytes": 2345144,
+    "opaque": true,
+    "meanRGB": [
+      49.76,
+      42.16,
+      35.44
+    ]
+  },
+  {
+    "file": "hero-works.png",
+    "label": "実績：成果の芽",
+    "width": 1672,
+    "height": 941,
+    "bytes": 1929331,
+    "opaque": true,
+    "meanRGB": [
+      39.68,
+      35.47,
+      32.95
+    ]
+  },
+  {
+    "file": "hero-blog.png",
+    "label": "お知らせ：更新と発信",
+    "width": 1672,
+    "height": 941,
+    "bytes": 2046870,
+    "opaque": true,
+    "meanRGB": [
+      41.38,
+      37.11,
+      34.86
+    ]
+  },
+  {
+    "file": "hero-contact.png",
+    "label": "お問い合わせ：天界の卵かけご飯",
+    "width": 1672,
+    "height": 941,
+    "bytes": 2079929,
+    "opaque": true,
+    "meanRGB": [
+      53.46,
+      43.3,
+      34.87
+    ]
+  },
+  {
+    "file": "hero-faq.png",
+    "label": "FAQ：やさしい対話",
+    "width": 1672,
+    "height": 940,
+    "bytes": 1770827,
+    "opaque": true,
+    "meanRGB": [
+      34.96,
+      31.28,
+      29.11
+    ]
+  }
+]

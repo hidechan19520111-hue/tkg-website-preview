@@ -1,0 +1,128 @@
+[
+  {
+    "file": "avatar-kisa-speaking.png",
+    "width": 1254,
+    "height": 1254,
+    "alpha": true
+  },
+  {
+    "file": "avatar-kisa.png",
+    "width": 1254,
+    "height": 1254,
+    "alpha": true
+  },
+  {
+    "file": "favicon.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "graphics-preview.png",
+    "width": 1400,
+    "height": 1450,
+    "alpha": true
+  },
+  {
+    "file": "icon-consulting.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "icon-corporate.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "icon-individual.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "icon-lancer.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "icon-network.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "icon-online.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "icon-spotwork.svg",
+    "width": 64,
+    "height": 64,
+    "alpha": true
+  },
+  {
+    "file": "logo-mark-white.svg",
+    "width": 288,
+    "height": 100,
+    "alpha": true
+  },
+  {
+    "file": "logo-mark.svg",
+    "width": 288,
+    "height": 100,
+    "alpha": true
+  },
+  {
+    "file": "ogp.png",
+    "width": 1200,
+    "height": 630,
+    "alpha": true
+  },
+  {
+    "file": "ogp.svg",
+    "width": 1200,
+    "height": 630,
+    "alpha": true
+  },
+  {
+    "file": "works-placeholder-01.png",
+    "width": 960,
+    "height": 540,
+    "alpha": true
+  },
+  {
+    "file": "works-placeholder-01.svg",
+    "width": 960,
+    "height": 540,
+    "alpha": true
+  },
+  {
+    "file": "works-placeholder-02.png",
+    "width": 960,
+    "height": 540,
+    "alpha": true
+  },
+  {
+    "file": "works-placeholder-02.svg",
+    "width": 960,
+    "height": 540,
+    "alpha": true
+  },
+  {
+    "file": "works-placeholder-03.png",
+    "width": 960,
+    "height": 540,
+    "alpha": true
+  },
+  {
+    "file": "works-placeholder-03.svg",
+    "width": 960,
+    "height": 540,
+    "alpha": true
+  }
+]
