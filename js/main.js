@@ -27,7 +27,6 @@ function initHeroVideo() {
     ? "assets/showreel/hero-vertical-poster.webp"
     : "assets/hero-index.webp";
 
-  section.classList.add("has-video");
   video.play().catch(function () {
     /* 自動再生がブロックされた場合はposter画像のまま静止表示になる */
   });

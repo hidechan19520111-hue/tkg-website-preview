@@ -215,7 +215,14 @@ h1, h2, h3 {
 
 /* ---------- ヒーロー ---------- */
 
-.hero {
+/* ヒーロー画像（Codex納品／assets/hero-*.webp）。画像とグラデーションは
+   ::beforeの専用レイヤーに乗せ、ゆっくり拡大するケンバーンズ演出をかける
+   （transformでアニメーションさせても中身の文字は動かない）。
+   トップページの動画スライド（.hero--index）だけは文字を乗せないため、
+   グラデーションなしで画像をそのまま見せる。
+   ページごとの画像は .hero--xxx / .page-header--xxx の --hero-image で指定。 */
+.hero,
+.page-header {
   position: relative;
   overflow: hidden;
   background: var(--navy);
@@ -223,17 +230,35 @@ h1, h2, h3 {
   view-transition-name: page-hero;
 }
 
-/* ヒーロー画像（Codex納品／assets/hero-*.webp）。共通のグラデーションで
-   左側（見出しが乗る側）を暗く落とし、被写体が主に右側にある構図に合わせる。
-   ページごとの画像は .hero--xxx / .page-header--xxx の --hero-image で指定。 */
-.hero,
-.page-header {
+.hero::before,
+.page-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background-image:
     linear-gradient(100deg, rgba(10, 21, 48, 0.95) 0%, rgba(10, 21, 48, 0.82) 32%, rgba(10, 21, 48, 0.42) 58%, rgba(10, 21, 48, 0.1) 80%),
     var(--hero-image, none);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  animation: hero-kenburns 24s ease-in-out infinite alternate;
+}
+
+.hero--index::before {
+  background-image: var(--hero-image, none);
+}
+
+@keyframes hero-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .page-header::before {
+    animation: none;
+  }
 }
 
 .hero--index { --hero-image: url("../assets/hero-index.webp"); }
@@ -245,12 +270,16 @@ h1, h2, h3 {
 .page-header--faq { --hero-image: url("../assets/hero-faq.webp"); }
 
 @media (max-width: 640px) {
-  .hero,
-  .page-header {
+  .hero::before,
+  .page-header::before {
     background-image:
       linear-gradient(rgba(10, 21, 48, 0.6), rgba(10, 21, 48, 0.6)),
       var(--hero-image-mobile, var(--hero-image, none));
     background-position: center;
+  }
+
+  .hero--index::before {
+    background-image: var(--hero-image-mobile, var(--hero-image, none));
   }
 
   .hero--index { --hero-image-mobile: url("../assets/showreel/hero-vertical-poster.webp"); }
@@ -260,10 +289,6 @@ h1, h2, h3 {
   .page-header--blog { --hero-image-mobile: url("../assets/hero-blog-mobile.webp"); }
   .page-header--contact { --hero-image-mobile: url("../assets/hero-contact-mobile.webp"); }
   .page-header--faq { --hero-image-mobile: url("../assets/hero-faq-mobile.webp"); }
-
-  .hero--index.has-video::before {
-    background-image: linear-gradient(rgba(10, 21, 48, 0.55), rgba(10, 21, 48, 0.55));
-  }
 }
 
 .hero-canvas {
@@ -282,19 +307,57 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
-}
-
-.hero--index.has-video::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   z-index: 1;
-  background-image: linear-gradient(100deg, rgba(10, 21, 48, 0.95) 0%, rgba(10, 21, 48, 0.82) 32%, rgba(10, 21, 48, 0.42) 58%, rgba(10, 21, 48, 0.1) 80%);
-  pointer-events: none;
 }
 
-.hero .container {
+/* ---------- スクロール誘導（動画だけのスライド用） ---------- */
+
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 5vw, 40px);
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+  animation: hero-scroll-bounce 2.2s ease-in-out infinite;
+}
+
+.hero-scroll-cue svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes hero-scroll-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-cue {
+    animation: none;
+  }
+}
+
+/* ---------- トップページ：動画の次に現れる訴求スライド ---------- */
+
+.hero-statement {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 78% 28%, rgba(242, 182, 50, 0.18), transparent 55%), var(--navy);
+  color: #fff;
+}
+
+.hero .container,
+.hero-statement .container {
   position: relative;
   z-index: 2;
   padding-block: clamp(64px, 12vw, 128px);
@@ -304,25 +367,30 @@ h1, h2, h3 {
   max-width: 760px;
 }
 
-.hero .eyebrow {
+.hero .eyebrow,
+.hero-statement .eyebrow {
   color: var(--yellow-soft);
 }
 
-.hero .eyebrow::before {
+.hero .eyebrow::before,
+.hero-statement .eyebrow::before {
   background: var(--yellow);
 }
 
-.hero h1 {
+.hero h1,
+.hero-statement h1 {
   font-size: clamp(30px, 5.4vw, 48px);
   color: #fff;
 }
 
-.hero h1 mark {
+.hero h1 mark,
+.hero-statement h1 mark {
   background: none;
   color: var(--yellow);
 }
 
-.hero p {
+.hero p,
+.hero-statement p {
   font-size: 16.5px;
   color: #d8ddea;
   max-width: 58ch;
@@ -677,8 +745,16 @@ section {
 .page-header {
   background-color: var(--navy);
   color: #fff;
-  padding-block: clamp(48px, 10vw, 80px) clamp(32px, 6vw, 56px);
+  min-height: 56vh;
+  display: flex;
+  align-items: center;
   view-transition-name: page-hero;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(48px, 10vw, 80px) clamp(32px, 6vw, 56px);
 }
 
 .page-header .eyebrow {
