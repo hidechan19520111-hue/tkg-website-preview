@@ -14,44 +14,46 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05080f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark.svg" alt="株式会社TKG" width="104" height="36"></a>
-    <nav class="nav" id="site-nav">
-      <a href="about.html">会社概要</a>
-      <a href="services.html">事業内容</a>
-      <a href="works.html">実績</a>
-      <a href="blog.html">お知らせ</a>
-      <a href="faq.html">よくある質問</a>
-      <a href="contact.html" class="nav-cta">お問い合わせ</a>
-    </nav>
-    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark-white.svg" alt="株式会社TKG" width="104" height="36"></a>
+  <nav class="nav" id="site-nav" aria-label="メインメニュー">
+    <a href="about.html"><span class="en">ABOUT</span><span class="jp">会社概要</span></a>
+    <a href="services.html"><span class="en">SERVICES</span><span class="jp">事業内容</span></a>
+    <a href="works.html"><span class="en">WORKS</span><span class="jp">実績</span></a>
+    <a href="blog.html"><span class="en">NEWS</span><span class="jp">お知らせ</span></a>
+    <a href="faq.html"><span class="en">FAQ</span><span class="jp">よくある質問</span></a>
+    <a href="contact.html" class="nav-cta"><span class="en">CONTACT</span><span class="jp">お問い合わせ</span></a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
 </header>
 
-<section class="hero hero--about snap-section">
+<section class="page-header page-header--about" data-index="00" data-label="ABOUT">
+  <div class="ph-ghost" aria-hidden="true" data-parallax="0.12">ABOUT</div>
   <div class="container">
-    <span class="eyebrow reveal reveal-load">ABOUT US</span>
-    <h1 class="reveal reveal-load">会社概要</h1>
-    <p class="reveal reveal-load">株式会社TKGは、法人・個人の"困りごと"に寄り添うコンサルティングと、スポット業務委託・個人事業主ネットワークを手がけています。</p>
+    <span class="eyebrow reveal">ABOUT US</span>
+    <h1 class="lines"><span class="line"><span>会社概要</span></span></h1>
+    <p class="reveal">株式会社TKGは、法人・個人の"困りごと"に寄り添うコンサルティングと、スポット業務委託・個人事業主ネットワークを手がけています。</p>
   </div>
 </section>
 
-<section class="snap-section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">COMPANY</span>
-      <h2>基本情報</h2>
+<section class="theme-light" data-index="01" data-label="COMPANY">
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-shell-01.webp" alt="" loading="lazy" data-parallax="-0.24" data-rot="30" style="top:8%; right:4%; --w:clamp(100px, 13vw, 220px);">
+    <img class="floaty floaty--far" src="assets/float-prism-02.webp" alt="" loading="lazy" data-parallax="-0.34" data-rot="-40" style="bottom:10%; left:3%; --w:clamp(40px, 4.6vw, 80px);">
+  </div>
+  <div class="container split" style="position:relative; z-index:1;">
+    <div class="section-head">
+      <span class="eyebrow reveal">COMPANY</span>
+      <h2 class="lines"><span class="line"><span>基本情報</span></span></h2>
     </div>
     <dl class="info-table reveal">
       <dt>会社名</dt>
@@ -72,26 +74,37 @@
   </div>
 </section>
 
-<section class="snap-section">
+<section data-index="02" data-label="MESSAGE">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">MESSAGE</span>
-      <h2>代表挨拶</h2>
+    <div class="section-head">
+      <span class="eyebrow reveal">MESSAGE</span>
+      <h2 class="lines"><span class="line"><span>代表挨拶</span></span></h2>
     </div>
-    <div class="rep-message reveal">
-      <div>
-        <img class="rep-avatar" id="rep-avatar-img" src="assets/avatar-kisa.png" alt="代表イメージイラスト" width="112" height="112">
+    <blockquote class="message-quote lines">
+      <span class="line"><span>その<em>"困った"</em>、</span></span>
+      <span class="line"><span>ひとりで抱えないで</span></span>
+      <span class="line"><span>ほしい。</span></span>
+    </blockquote>
+    <div class="rep-message">
+      <div class="rep-figure reveal">
+        <img class="rep-avatar" src="assets/avatar-kisa-portrait.webp" alt="代表イメージイラスト" width="1122" height="1402" loading="lazy">
         <p class="rep-caption">※代表イメージイラストです（本人の写真ではありません）</p>
       </div>
-      <div class="rep-text">
-        <p>「その"困った"、ひとりで抱えないでほしい。」</p>
+      <div class="rep-text reveal">
         <p>法人の経営課題も、個人のちょっとした相談も、規模の大小に関わらず、まずは話を聞くことから始めています。ご相談いただいた分だけ、必要な形でお応えできるよう、コンサルティングからスポットの業務委託まで、柔軟に対応しています。</p>
         <p>［木佐様のお言葉に差し替え推奨：創業の想いやお客様へのメッセージなど、ご自身の言葉でご記入ください］</p>
-        <p class="rep-name">木佐 祐久</p>
         <p class="rep-role">株式会社TKG 代表</p>
+        <p class="rep-name">木佐 祐久</p>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="theme-light" data-index="03" data-label="PROFILE">
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-yolk.webp" alt="" loading="lazy" data-parallax="-0.3" data-rot="20" style="top:4%; right:6%; --w:clamp(70px, 9vw, 150px);">
+  </div>
+  <div class="container">
     <!-- 遊び心枠：内容はClaudeによる仮ドラフトです。木佐様の実際のキャラクターに合わせて
          項目・一言コメントの差し替えをお願いします -->
     <div class="rep-fun-card reveal">
@@ -115,33 +128,49 @@
           <dd>困りごとの整理整頓</dd>
         </div>
       </dl>
-      <button type="button" class="rep-poke-btn" id="rep-poke">つついてみる →</button>
-      <p class="rep-poke-line" id="rep-poke-line" aria-live="polite">クリックすると、木佐から一言もらえます。</p>
+      <div class="rep-poke">
+        <img class="rep-poke-avatar" id="rep-avatar-img" src="assets/avatar-kisa.png" alt="代表イメージイラスト" width="120" height="120" loading="lazy">
+        <div>
+          <button type="button" class="rep-poke-btn magnetic" id="rep-poke">つついてみる →</button>
+          <p class="rep-poke-line" id="rep-poke-line" aria-live="polite">クリックすると、木佐から一言もらえます。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="snap-section">
-  <div class="cta-band reveal">
+<section>
+  <div class="cta-band">
     <div>
-      <h2>まずは、話を聞かせてください。</h2>
-      <p>実現できる範囲や進め方については、お問い合わせ後にあらためて打ち合わせいたします。</p>
+      <span class="eyebrow reveal">CONTACT</span>
+      <h2 class="lines"><span class="line"><span>まずは、話を</span></span><span class="line"><span>聞かせてください。</span></span></h2>
+      <p class="reveal">実現できる範囲や進め方については、お問い合わせ後にあらためて打ち合わせいたします。</p>
     </div>
-    <a href="contact.html" class="btn btn-primary">お問い合わせフォームへ</a>
+    <a href="contact.html" class="cta-orb magnetic" data-cursor=""><span>お問い合わせ<br>フォームへ</span><i class="btn-arrow"></i></a>
   </div>
 </section>
 
 <footer class="site-footer">
+  <div class="footer-ghost" aria-hidden="true">TASK KISA GUILD</div>
   <div class="container">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark-white.svg" alt="株式会社TKG" width="104" height="36"></a>
-        <p style="margin-top:10px; max-width:32ch; color:#a9b0c3;">困りごと相談とスポット業務委託の株式会社TKG。</p>
+        <p>困りごと相談とスポット業務委託の株式会社TKG。</p>
       </div>
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <a href="about.html"><span class="en">ABOUT</span><span class="jp">会社概要</span></a>
+        <a href="services.html"><span class="en">SERVICES</span><span class="jp">事業内容</span></a>
+        <a href="works.html"><span class="en">WORKS</span><span class="jp">実績</span></a>
+        <a href="blog.html"><span class="en">NEWS</span><span class="jp">お知らせ</span></a>
+        <a href="faq.html"><span class="en">FAQ</span><span class="jp">よくある質問</span></a>
+        <a href="contact.html"><span class="en">CONTACT</span><span class="jp">お問い合わせ</span></a>
+      </nav>
       <div class="footer-contact">
-        <strong style="color:#fff;">株式会社TKG</strong>
+        <strong>株式会社TKG</strong>
         <span>ご担当：木佐 祐久</span>
         <span>TEL：090-9876-3643</span>
+        <!-- TODO: メールアドレスの表記をクライアントに確認（gmail.comの"i"抜けの可能性） -->
         <span>Mail：office.tkgxx@gmai.com</span>
       </div>
     </div>

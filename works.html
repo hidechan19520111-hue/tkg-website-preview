@@ -14,42 +14,40 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05080f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark.svg" alt="株式会社TKG" width="104" height="36"></a>
-    <nav class="nav" id="site-nav">
-      <a href="about.html">会社概要</a>
-      <a href="services.html">事業内容</a>
-      <a href="works.html">実績</a>
-      <a href="blog.html">お知らせ</a>
-      <a href="faq.html">よくある質問</a>
-      <a href="contact.html" class="nav-cta">お問い合わせ</a>
-    </nav>
-    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark-white.svg" alt="株式会社TKG" width="104" height="36"></a>
+  <nav class="nav" id="site-nav" aria-label="メインメニュー">
+    <a href="about.html"><span class="en">ABOUT</span><span class="jp">会社概要</span></a>
+    <a href="services.html"><span class="en">SERVICES</span><span class="jp">事業内容</span></a>
+    <a href="works.html"><span class="en">WORKS</span><span class="jp">実績</span></a>
+    <a href="blog.html"><span class="en">NEWS</span><span class="jp">お知らせ</span></a>
+    <a href="faq.html"><span class="en">FAQ</span><span class="jp">よくある質問</span></a>
+    <a href="contact.html" class="nav-cta"><span class="en">CONTACT</span><span class="jp">お問い合わせ</span></a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
 </header>
 
-<section class="page-header page-header--works">
+<section class="page-header page-header--works" data-index="00" data-label="WORKS">
+  <div class="ph-ghost" aria-hidden="true" data-parallax="0.12">WORKS</div>
   <div class="container">
-    <span class="eyebrow">WORKS</span>
-    <h1>実績・事例</h1>
-    <p>ご相談いただいた案件の実績・事例は、今後こちらに随時掲載していきます。</p>
+    <span class="eyebrow reveal">WORKS</span>
+    <h1 class="lines"><span class="line"><span>実績・事例</span></span></h1>
+    <p class="reveal">ご相談いただいた案件の実績・事例は、今後こちらに随時掲載していきます。</p>
   </div>
 </section>
 
-<section>
+<section data-index="01" data-label="WORKS">
   <div class="container">
-    <div class="empty-state">
+    <div class="empty-state reveal">
       <strong>実績を準備中です</strong>
       ご相談・ご契約いただいた案件について、内容の公開可否をご確認の上、順次こちらに掲載していく予定です。<br>
       現時点でのご相談は、事業内容ページ・お問い合わせページよりお気軽にどうぞ。
@@ -71,14 +69,14 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
+<section class="theme-light" data-index="02" data-label="FIELDS">
+  <div class="container split">
     <div class="section-head">
-      <span class="eyebrow">対応分野の例</span>
-      <h2>こんなご相談に対応しています</h2>
-      <p>具体的な事例は準備中ですが、対応している相談分野の例です。</p>
+      <span class="eyebrow reveal">対応分野の例</span>
+      <h2 class="lines"><span class="line"><span>こんなご相談に</span></span><span class="line"><span>対応しています</span></span></h2>
+      <p class="reveal">具体的な事例は準備中ですが、対応している相談分野の例です。</p>
     </div>
-    <div class="service-list">
+    <div class="service-list reveal">
       <div class="service-item">
         <span class="service-num">01</span>
         <div>
@@ -114,24 +112,35 @@
 <section>
   <div class="cta-band">
     <div>
-      <h2>まずは、話を聞かせてください。</h2>
-      <p>実現できる範囲や進め方については、お問い合わせ後にあらためて打ち合わせいたします。</p>
+      <span class="eyebrow reveal">CONTACT</span>
+      <h2 class="lines"><span class="line"><span>まずは、話を</span></span><span class="line"><span>聞かせてください。</span></span></h2>
+      <p class="reveal">実現できる範囲や進め方については、お問い合わせ後にあらためて打ち合わせいたします。</p>
     </div>
-    <a href="contact.html" class="btn btn-primary">お問い合わせフォームへ</a>
+    <a href="contact.html" class="cta-orb magnetic" data-cursor=""><span>お問い合わせ<br>フォームへ</span><i class="btn-arrow"></i></a>
   </div>
 </section>
 
 <footer class="site-footer">
+  <div class="footer-ghost" aria-hidden="true">TASK KISA GUILD</div>
   <div class="container">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark-white.svg" alt="株式会社TKG" width="104" height="36"></a>
-        <p style="margin-top:10px; max-width:32ch; color:#a9b0c3;">困りごと相談とスポット業務委託の株式会社TKG。</p>
+        <p>困りごと相談とスポット業務委託の株式会社TKG。</p>
       </div>
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <a href="about.html"><span class="en">ABOUT</span><span class="jp">会社概要</span></a>
+        <a href="services.html"><span class="en">SERVICES</span><span class="jp">事業内容</span></a>
+        <a href="works.html"><span class="en">WORKS</span><span class="jp">実績</span></a>
+        <a href="blog.html"><span class="en">NEWS</span><span class="jp">お知らせ</span></a>
+        <a href="faq.html"><span class="en">FAQ</span><span class="jp">よくある質問</span></a>
+        <a href="contact.html"><span class="en">CONTACT</span><span class="jp">お問い合わせ</span></a>
+      </nav>
       <div class="footer-contact">
-        <strong style="color:#fff;">株式会社TKG</strong>
+        <strong>株式会社TKG</strong>
         <span>ご担当：木佐 祐久</span>
         <span>TEL：090-9876-3643</span>
+        <!-- TODO: メールアドレスの表記をクライアントに確認（gmail.comの"i"抜けの可能性） -->
         <span>Mail：office.tkgxx@gmai.com</span>
       </div>
     </div>

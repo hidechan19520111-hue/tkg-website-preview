@@ -14,203 +14,315 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05080f">
+<script>
+  /* 演出の初期状態（非表示→出現）はJSが動く環境でだけ有効にする。
+     オープニングは1セッションに1回だけ・モーション軽減設定時は出さない。 */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduce && !sessionStorage.getItem("tkg-opened")) d.classList.add("is-loading");
+    } catch (e) {}
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
-<body>
+<body class="page-index">
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark.svg" alt="株式会社TKG" width="104" height="36"></a>
-    <nav class="nav" id="site-nav">
-      <a href="about.html">会社概要</a>
-      <a href="services.html">事業内容</a>
-      <a href="works.html">実績</a>
-      <a href="blog.html">お知らせ</a>
-      <a href="faq.html">よくある質問</a>
-      <a href="contact.html" class="nav-cta">お問い合わせ</a>
-    </nav>
-    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+<!-- オープニング：画面そのものが殻のように割れて開く -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-half loader-half--top"></div>
+  <div class="loader-half loader-half--bottom"></div>
+  <svg class="loader-crack" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <polyline points="0,51 14,47 28,52 40,46 52,54 64,47 76,53 88,46 100,50" pathLength="1" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="loader-mark">
+    <img src="assets/logo-mark-white.svg" alt="" width="104" height="36">
+    <span>Task Kisa Guild</span>
   </div>
+</div>
+
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark-white.svg" alt="株式会社TKG" width="104" height="36"></a>
+  <nav class="nav" id="site-nav" aria-label="メインメニュー">
+    <a href="about.html"><span class="en">ABOUT</span><span class="jp">会社概要</span></a>
+    <a href="services.html"><span class="en">SERVICES</span><span class="jp">事業内容</span></a>
+    <a href="works.html"><span class="en">WORKS</span><span class="jp">実績</span></a>
+    <a href="blog.html"><span class="en">NEWS</span><span class="jp">お知らせ</span></a>
+    <a href="faq.html"><span class="en">FAQ</span><span class="jp">よくある質問</span></a>
+    <a href="contact.html" class="nav-cta"><span class="en">CONTACT</span><span class="jp">お問い合わせ</span></a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
 </header>
 
-<section class="hero hero--index snap-section">
+<main>
+
+<!-- 00 ショーリール -->
+<section class="hero hero--index" data-index="00" data-label="SHOWREEL">
   <video class="hero-video" muted playsinline preload="auto" poster="assets/hero-index.webp">
     <source src="assets/showreel/TKG_showreel_vertical_1080x1920_24fps.mp4" type="video/mp4" media="(max-width: 900px)">
     <source src="assets/showreel/TKG_showreel_1920x1080_24fps.mp4" type="video/mp4">
   </video>
-  <a href="#hero-statement" class="hero-scroll-cue" aria-label="スクロールして詳細を見る">
-    <span>SCROLL</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-  </a>
-</section>
-
-<section class="hero-statement snap-section" id="hero-statement">
-  <div class="shard-field" aria-hidden="true">
-    <div class="shard shard--lg reveal shard--scattered" style="top:14%; left:8%; --shard-rot:-28deg; --shard-settle:9deg; --shard-x:-28px; --shard-y:-18px;"></div>
-    <div class="shard shard--navy reveal shard--scattered" style="top:22%; right:10%; --shard-rot:36deg; --shard-settle:-8deg; --shard-x:22px; --shard-y:-14px;"></div>
-    <div class="shard shard--sm shard--navy reveal shard--scattered" style="bottom:18%; left:16%; --shard-rot:18deg; --shard-settle:-6deg; --shard-x:-14px; --shard-y:16px;"></div>
-    <div class="shard shard--sm reveal shard--scattered" style="bottom:12%; right:18%; --shard-rot:-22deg; --shard-settle:12deg; --shard-x:16px; --shard-y:20px;"></div>
-  </div>
-  <div class="container">
-    <span class="eyebrow reveal">困りごと相談 × スポット業務委託</span>
-    <h1 class="reveal">その"困った"、<mark>ひとりで抱えない</mark>。</h1>
-    <p class="reveal">法人のコンサルティングから、個人のちょっとした相談まで。株式会社TKGが、課題の整理から解決の一歩目までを一緒に考えます。</p>
-    <div class="hero-actions reveal">
-      <a href="contact.html" class="btn btn-primary">お問い合わせはこちら</a>
-      <a href="services.html" class="btn btn-ghost">事業内容を見る</a>
-    </div>
+  <div class="hero-hud">
+    <p class="hero-hud-name"><span>株式会社TKG</span><span>Task Kisa Guild</span></p>
+    <a href="#manifesto" class="hero-scroll-cue" aria-label="スクロールして続きを見る"><span>SCROLL</span><i></i></a>
   </div>
 </section>
 
-<div class="marquee-band" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-group">
-      <span>AIと二人三脚でつくっています。</span>
-      <span class="marquee-star">★</span>
-      <span>恥ずかしげもなく自慢します。</span>
-      <span class="marquee-star">★</span>
-      <span>殻を破るのは、卵だけじゃない。</span>
-      <span class="marquee-star">★</span>
-      <span>木佐社長AI、鋭意準備中。</span>
-      <span class="marquee-star">★</span>
-      <span>困りごとも、殻も、まとめて割ります。</span>
-      <span class="marquee-star">★</span>
+<!-- 01 マニフェスト：スクロールに合わせて殻が割れる -->
+<section class="manifesto" id="manifesto" data-index="01" data-label="MANIFESTO">
+  <div class="manifesto-pin">
+    <div class="manifesto-ghost" aria-hidden="true">破</div>
+
+    <div class="manifesto-egg" aria-hidden="true">
+      <svg class="egg" viewBox="0 0 400 500">
+        <defs>
+          <radialGradient id="eg-shell" cx="34%" cy="26%" r="85%">
+            <stop offset="0" stop-color="#3a4668"/>
+            <stop offset=".45" stop-color="#141c33"/>
+            <stop offset="1" stop-color="#04070e"/>
+          </radialGradient>
+          <radialGradient id="eg-yolk" cx="40%" cy="34%" r="72%">
+            <stop offset="0" stop-color="#fff0b8"/>
+            <stop offset=".45" stop-color="#fbc341"/>
+            <stop offset="1" stop-color="#e2870a"/>
+          </radialGradient>
+          <radialGradient id="eg-glow">
+            <stop offset="0" stop-color="#ffd66b" stop-opacity=".85"/>
+            <stop offset=".45" stop-color="#f2b632" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#f2b632" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="eg-top"><polygon points="0,0 400,0 400,255 357,255 335,220 300,250 255,215 215,260 175,210 130,255 95,215 44,250 0,250"/></clipPath>
+          <clipPath id="eg-bot"><polygon points="0,500 400,500 400,255 357,255 335,220 300,250 255,215 215,260 175,210 130,255 95,215 44,250 0,250"/></clipPath>
+        </defs>
+        <circle class="egg-glow" cx="200" cy="262" r="250" fill="url(#eg-glow)"/>
+        <g class="egg-rays"></g>
+        <circle class="egg-yolk" cx="200" cy="292" r="90" fill="url(#eg-yolk)"/>
+        <g class="egg-bot" clip-path="url(#eg-bot)">
+          <path class="egg-shell" d="M200 30C290 30 360 170 360 290C360 400 290 470 200 470C110 470 40 400 40 290C40 170 110 30 200 30Z"/>
+        </g>
+        <g class="egg-top">
+          <g clip-path="url(#eg-top)">
+            <path class="egg-shell" d="M200 30C290 30 360 170 360 290C360 400 290 470 200 470C110 470 40 400 40 290C40 170 110 30 200 30Z"/>
+          </g>
+        </g>
+        <polyline class="egg-crack" points="44,250 95,215 130,255 175,210 215,260 255,215 300,250 335,220 357,255" pathLength="1"/>
+        <g class="egg-shards">
+          <polygon points="120,236 142,214 150,244" style="--sx:-150px; --sy:-110px; --sr:-140deg;"/>
+          <polygon points="168,222 190,232 176,250" style="--sx:-70px; --sy:-190px; --sr:200deg;"/>
+          <polygon points="222,246 246,228 250,252" style="--sx:90px; --sy:-170px; --sr:160deg;"/>
+          <polygon points="286,238 306,224 312,250" style="--sx:170px; --sy:-90px; --sr:-190deg;"/>
+          <polygon points="76,232 92,224 96,246" style="--sx:-190px; --sy:-30px; --sr:120deg;"/>
+          <polygon points="326,232 344,238 334,254" style="--sx:200px; --sy:-10px; --sr:-110deg;"/>
+        </g>
+      </svg>
     </div>
-    <div class="marquee-group">
-      <span>AIと二人三脚でつくっています。</span>
-      <span class="marquee-star">★</span>
-      <span>恥ずかしげもなく自慢します。</span>
-      <span class="marquee-star">★</span>
-      <span>殻を破るのは、卵だけじゃない。</span>
-      <span class="marquee-star">★</span>
-      <span>木佐社長AI、鋭意準備中。</span>
-      <span class="marquee-star">★</span>
-      <span>困りごとも、殻も、まとめて割ります。</span>
-      <span class="marquee-star">★</span>
+
+    <div class="container manifesto-copy">
+      <span class="eyebrow">困りごと相談 × スポット業務委託</span>
+      <h1 class="mega lines">
+        <span class="line"><span>その「困った」の</span></span>
+        <span class="line"><span>殻を、<em>割</em>る。</span></span>
+      </h1>
+      <p class="manifesto-en">We crack the shell of your trouble.</p>
+      <div class="manifesto-body">
+        <p>その"困った"、ひとりで抱えない。法人のコンサルティングから、個人のちょっとした相談まで。株式会社TKGが、課題の整理から解決の一歩目までを一緒に考えます。</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary magnetic"><span>お問い合わせはこちら</span><i class="btn-arrow"></i></a>
+          <a href="services.html" class="btn btn-ghost magnetic"><span>事業内容を見る</span><i class="btn-arrow"></i></a>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- 巨大な流れる文字 -->
+<div class="ghost-marquee" aria-hidden="true">
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-yolk.webp" alt="" loading="lazy" data-parallax="-0.34" data-rot="30" style="top:8%; right:9%; --w:clamp(84px, 13vw, 210px);">
+    <img class="floaty floaty--far" src="assets/float-bead.webp" alt="" loading="lazy" data-parallax="-0.2" data-rot="0" style="bottom:10%; left:12%; --w:clamp(34px, 4.4vw, 70px);">
+    <img class="floaty" src="assets/float-prism-02.webp" alt="" loading="lazy" data-parallax="-0.5" data-rot="-60" style="top:42%; left:44%; --w:clamp(40px, 5vw, 84px);">
+  </div>
+  <div class="gm-row gm-row--en" data-marquee="-1">
+    <div class="gm-group"><span>BREAK THE SHELL</span><i></i><span>TASK KISA GUILD</span><i></i></div>
+  </div>
+  <div class="gm-row gm-row--jp" data-marquee="1">
+    <div class="gm-group"><span>AIと二人三脚でつくっています。</span><i></i><span>恥ずかしげもなく自慢します。</span><i></i><span>殻を破るのは、卵だけじゃない。</span><i></i><span>木佐社長AI、鋭意準備中。</span><i></i><span>困りごとも、殻も、まとめて割ります。</span><i></i></div>
   </div>
 </div>
 
-<section class="audience snap-section" id="audience">
-  <div class="shard-field" aria-hidden="true">
-    <div class="shard shard--lg reveal shard--scattered" style="top:12%; left:6%; --shard-rot:-30deg; --shard-settle:8deg; --shard-x:-30px; --shard-y:-20px;"></div>
-    <div class="shard shard--navy reveal shard--scattered" style="top:20%; right:8%; --shard-rot:40deg; --shard-settle:-10deg; --shard-x:24px; --shard-y:-16px;"></div>
-    <div class="shard shard--sm shard--navy reveal shard--scattered" style="bottom:14%; left:14%; --shard-rot:15deg; --shard-settle:-6deg; --shard-x:-16px; --shard-y:18px;"></div>
-    <div class="shard shard--sm reveal shard--scattered" style="bottom:10%; right:16%; --shard-rot:-20deg; --shard-settle:14deg; --shard-x:18px; --shard-y:22px;"></div>
+<!-- 02 三つの入口 -->
+<section class="doors" id="audience" data-index="02" data-label="FOR YOU">
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-shell-02.webp" alt="" loading="lazy" data-parallax="-0.3" data-rot="40" style="top:6%; right:10%; --w:clamp(90px, 12vw, 190px);">
+    <img class="floaty floaty--far" src="assets/float-drop.webp" alt="" loading="lazy" data-parallax="-0.14" data-rot="-20" style="top:20%; right:30%; --w:clamp(30px, 3.4vw, 56px);">
   </div>
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">FOR YOU</span>
-      <h2>どなたに向けたサービスか</h2>
-      <p>法人・個人・ご登録をご希望の方、それぞれに合わせた窓口をご用意しています。</p>
+    <div class="sec-head">
+      <span class="eyebrow reveal">FOR YOU</span>
+      <h2 class="lines"><span class="line"><span>入口は、三つ。</span></span></h2>
+      <p class="reveal">法人・個人・ご登録をご希望の方、それぞれに合わせた窓口をご用意しています。</p>
     </div>
-    <div class="audience-grid">
-      <div class="audience-card reveal">
-        <img class="audience-icon" src="assets/icon-corporate.svg" alt="" width="44" height="44">
-        <span class="tag">法人のお客様</span>
-        <h3>コンサルティング・業務改善のご相談</h3>
-        <p>経営や業務における"困りごと"の整理から、解決に向けた提案・伴走まで対応します。</p>
-        <a href="services.html#corporate">法人向けサービスを見る →</a>
+  </div>
+  <div class="doors-grid">
+    <a class="door door--corporate reveal" href="services.html#corporate" data-cursor="VIEW">
+      <span class="door-num">01</span>
+      <span class="door-tag">法人のお客様</span>
+      <h3>コンサルティング・<br>業務改善のご相談</h3>
+      <p>経営や業務における"困りごと"の整理から、解決に向けた提案・伴走まで対応します。</p>
+      <span class="door-link">法人向けサービスを見る<i class="btn-arrow"></i></span>
+    </a>
+    <a class="door door--individual reveal" href="services.html#individual" data-cursor="VIEW">
+      <span class="door-num">02</span>
+      <span class="door-tag">個人のお客様</span>
+      <h3>ピンポイントの<br>困りごと相談</h3>
+      <p>法人向けと同様のご相談はもちろん、小規模な業務のスポット委託にも対応します。</p>
+      <span class="door-link">個人向けサービスを見る<i class="btn-arrow"></i></span>
+    </a>
+    <a class="door door--lancer reveal" href="contact.html#register" data-cursor="VIEW">
+      <span class="door-num">03</span>
+      <span class="door-tag">登録をご希望の方</span>
+      <h3>個人事業主としての<br>ご登録</h3>
+      <p>TKGのネットワークに加わり、案件のご紹介を受けたい方はこちらからご登録ください。</p>
+      <span class="door-link">登録について問い合わせる<i class="btn-arrow"></i></span>
+    </a>
+  </div>
+</section>
+
+<!-- 03 事業内容 -->
+<section class="svc theme-light" data-index="03" data-label="SERVICES">
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-shell-01.webp" alt="" loading="lazy" data-parallax="-0.26" data-rot="36" style="top:1%; right:-3%; --w:clamp(110px, 14vw, 230px);">
+    <img class="floaty floaty--far" src="assets/float-prism-02.webp" alt="" loading="lazy" data-parallax="-0.12" data-rot="-50" style="top:52%; left:2%; --w:clamp(44px, 5vw, 86px);">
+    <img class="floaty" src="assets/float-drop.webp" alt="" loading="lazy" data-parallax="-0.4" data-rot="24" style="bottom:5%; right:30%; --w:clamp(30px, 3.6vw, 60px);">
+  </div>
+  <div class="container svc-layout">
+    <div class="sec-head sec-head--sticky">
+      <span class="eyebrow reveal">SERVICES</span>
+      <h2 class="lines"><span class="line"><span>必要な分だけ、</span></span><span class="line"><span>必要なかたちで。</span></span></h2>
+      <p class="reveal">小さな相談から、継続的な伴走まで。必要な分だけお使いいただけます。</p>
+      <a href="services.html" class="btn btn-line reveal magnetic"><span>事業内容を詳しく</span><i class="btn-arrow"></i></a>
+    </div>
+    <div class="svc-list">
+      <a class="svc-row reveal" href="services.html#corporate" data-preview="assets/svc-01-consulting.webp">
+        <span class="svc-num">01</span>
+        <span class="svc-main"><h3>経営・業務コンサルティング</h3><p>困りごとのヒアリングから課題整理、解決策のご提案まで対応します。</p></span>
+        <span class="svc-arrow"><i class="btn-arrow"></i></span>
+      </a>
+      <a class="svc-row reveal" href="services.html#individual" data-preview="assets/svc-02-spotwork.webp">
+        <span class="svc-num">02</span>
+        <span class="svc-main"><h3>スポット業務委託</h3><p>小規模・単発の業務を、必要な分だけご依頼いただけます。</p></span>
+        <span class="svc-arrow"><i class="btn-arrow"></i></span>
+      </a>
+      <a class="svc-row reveal" href="services.html#network" data-preview="assets/svc-03-network.webp">
+        <span class="svc-num">03</span>
+        <span class="svc-main"><h3>個人事業主ネットワーク</h3><p>案件とスキルをつなぐ登録制度。ご登録いただいた方に案件をご紹介します。</p></span>
+        <span class="svc-arrow"><i class="btn-arrow"></i></span>
+      </a>
+      <a class="svc-row reveal" href="services.html#flow">
+        <span class="svc-num">04</span>
+        <span class="svc-main"><h3>オンラインでのご相談</h3><p>お問い合わせ後、オンラインでの初回相談に対応しています。</p></span>
+        <span class="svc-arrow"><i class="btn-arrow"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TKG × AI
+     ※本文はClaudeによる仮ドラフト。記載は「このサイトの制作」に関する事実に限定している。
+       業務でのAI活用について書き足す場合は、木佐様に内容をご確認ください。 -->
+<section class="lab" data-index="04" data-label="TKG × AI">
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-prism-01.webp" alt="" loading="lazy" data-parallax="-0.32" data-rot="-44" style="top:10%; right:7%; --w:clamp(90px, 13vw, 220px);">
+    <img class="floaty floaty--far" src="assets/float-bead.webp" alt="" loading="lazy" data-parallax="-0.14" data-rot="0" style="top:48%; right:30%; --w:clamp(26px, 3vw, 50px);">
+  </div>
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow reveal">TKG × AI</span>
+      <h2 class="lines"><span class="line"><span>AIと、二人三脚。</span></span></h2>
+      <p class="reveal">このサイトは、設計もコードも画像も映像も、AIと人の二人三脚でつくりました。恥ずかしげもなく、自慢します。</p>
+    </div>
+    <div class="lab-grid">
+      <div class="lab-card reveal">
+        <span class="lab-label">DESIGN / CODE</span>
+        <h3>設計とコード</h3>
+        <p>ページの構成、文章のたたき台、動きの実装まで、AIとの対話で組み上げています。</p>
       </div>
-      <div class="audience-card reveal">
-        <img class="audience-icon" src="assets/icon-individual.svg" alt="" width="44" height="44">
-        <span class="tag">個人のお客様</span>
-        <h3>ピンポイントの困りごと相談</h3>
-        <p>法人向けと同様のご相談はもちろん、小規模な業務のスポット委託にも対応します。</p>
-        <a href="services.html#individual">個人向けサービスを見る →</a>
+      <div class="lab-card reveal">
+        <span class="lab-label">VISUAL / MOVIE</span>
+        <h3>画像と映像</h3>
+        <p>各ページを飾る「割れる殻」のビジュアルと冒頭のショーリールは、AIで生成したものです。</p>
       </div>
-      <div class="audience-card reveal">
-        <img class="audience-icon" src="assets/icon-lancer.svg" alt="" width="44" height="44">
-        <span class="tag">登録をご希望の方</span>
-        <h3>個人事業主としてのご登録</h3>
-        <p>TKGのネットワークに加わり、案件のご紹介を受けたい方はこちらからご登録ください。</p>
-        <a href="contact.html#register">登録について問い合わせる →</a>
+      <div class="lab-card reveal">
+        <span class="lab-label">NEXT</span>
+        <h3>木佐社長AI</h3>
+        <p>代表・木佐をイメージしたキャラクターによるAIチャットを、鋭意準備中です。</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="services snap-section">
-  <div class="shard-field" aria-hidden="true">
-    <div class="shard reveal shard--scattered" style="top:10%; right:10%; --shard-rot:-24deg; --shard-settle:10deg; --shard-x:26px; --shard-y:-18px;"></div>
-    <div class="shard shard--navy shard--sm reveal shard--scattered" style="bottom:16%; left:8%; --shard-rot:20deg; --shard-settle:-12deg; --shard-x:-20px; --shard-y:16px;"></div>
+<!-- 05 代表メッセージ（抜粋） -->
+<section class="rep theme-light" data-index="05" data-label="MESSAGE">
+  <div class="float-field" aria-hidden="true">
+    <img class="floaty" src="assets/float-shell-03.webp" alt="" loading="lazy" data-parallax="-0.3" data-rot="-30" style="bottom:6%; right:5%; --w:clamp(100px, 13vw, 220px);">
+    <img class="floaty floaty--far" src="assets/float-bead.webp" alt="" loading="lazy" data-parallax="-0.16" data-rot="0" style="top:12%; right:22%; --w:clamp(30px, 3.6vw, 60px);">
   </div>
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">SERVICES</span>
-      <h2>事業内容</h2>
-      <p>小さな相談から、継続的な伴走まで。必要な分だけお使いいただけます。</p>
-    </div>
-    <div class="service-list">
-      <div class="service-item reveal">
-        <div class="service-icon-num">
-          <img src="assets/icon-consulting.svg" alt="" width="32" height="32">
-          <span class="service-num">01</span>
-        </div>
-        <div>
-          <h3>経営・業務コンサルティング</h3>
-          <p>困りごとのヒアリングから課題整理、解決策のご提案まで対応します。</p>
-        </div>
-      </div>
-      <div class="service-item reveal">
-        <div class="service-icon-num">
-          <img src="assets/icon-spotwork.svg" alt="" width="32" height="32">
-          <span class="service-num">02</span>
-        </div>
-        <div>
-          <h3>スポット業務委託</h3>
-          <p>小規模・単発の業務を、必要な分だけご依頼いただけます。</p>
-        </div>
-      </div>
-      <div class="service-item reveal">
-        <div class="service-icon-num">
-          <img src="assets/icon-network.svg" alt="" width="32" height="32">
-          <span class="service-num">03</span>
-        </div>
-        <div>
-          <h3>個人事業主ネットワーク</h3>
-          <p>案件とスキルをつなぐ登録制度。ご登録いただいた方に案件をご紹介します。</p>
-        </div>
-      </div>
-      <div class="service-item reveal">
-        <div class="service-icon-num">
-          <img src="assets/icon-online.svg" alt="" width="32" height="32">
-          <span class="service-num">04</span>
-        </div>
-        <div>
-          <h3>オンラインでのご相談</h3>
-          <p>お問い合わせ後、オンラインでの初回相談に対応しています。</p>
-        </div>
-      </div>
+  <div class="container rep-layout">
+    <figure class="rep-figure reveal">
+      <img src="assets/avatar-kisa-portrait.webp" alt="代表イメージイラスト" width="1122" height="1402" loading="lazy">
+      <figcaption>※代表イメージイラストです（本人の写真ではありません）</figcaption>
+    </figure>
+    <div class="rep-body">
+      <span class="eyebrow reveal">MESSAGE</span>
+      <blockquote class="rep-quote lines">
+        <span class="line"><span>その"困った"、</span></span>
+        <span class="line"><span>ひとりで抱えないで</span></span>
+        <span class="line"><span>ほしい。</span></span>
+      </blockquote>
+      <p class="rep-sign reveal"><span>株式会社TKG 代表</span><strong>木佐 祐久</strong></p>
+      <a href="about.html" class="btn btn-line reveal magnetic"><span>会社概要・代表挨拶へ</span><i class="btn-arrow"></i></a>
     </div>
   </div>
 </section>
 
-<section class="snap-section">
-  <div class="cta-band reveal">
+<section>
+  <div class="cta-band">
     <div>
-      <h2>まずは、話を聞かせてください。</h2>
-      <p>実現できる範囲や進め方については、お問い合わせ後にあらためて打ち合わせいたします。</p>
+      <span class="eyebrow reveal">CONTACT</span>
+      <h2 class="lines"><span class="line"><span>まずは、話を</span></span><span class="line"><span>聞かせてください。</span></span></h2>
+      <p class="reveal">実現できる範囲や進め方については、お問い合わせ後にあらためて打ち合わせいたします。</p>
     </div>
-    <a href="contact.html" class="btn btn-primary">お問い合わせフォームへ</a>
+    <a href="contact.html" class="cta-orb magnetic" data-cursor=""><span>お問い合わせ<br>フォームへ</span><i class="btn-arrow"></i></a>
   </div>
 </section>
+
+</main>
 
 <footer class="site-footer">
+  <div class="footer-ghost" aria-hidden="true">TASK KISA GUILD</div>
   <div class="container">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a href="index.html" class="logo" aria-label="株式会社TKG トップページ"><img src="assets/logo-mark-white.svg" alt="株式会社TKG" width="104" height="36"></a>
-        <p style="margin-top:10px; max-width:32ch; color:#a9b0c3;">困りごと相談とスポット業務委託の株式会社TKG。</p>
+        <p>困りごと相談とスポット業務委託の株式会社TKG。</p>
       </div>
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <a href="about.html"><span class="en">ABOUT</span><span class="jp">会社概要</span></a>
+        <a href="services.html"><span class="en">SERVICES</span><span class="jp">事業内容</span></a>
+        <a href="works.html"><span class="en">WORKS</span><span class="jp">実績</span></a>
+        <a href="blog.html"><span class="en">NEWS</span><span class="jp">お知らせ</span></a>
+        <a href="faq.html"><span class="en">FAQ</span><span class="jp">よくある質問</span></a>
+        <a href="contact.html"><span class="en">CONTACT</span><span class="jp">お問い合わせ</span></a>
+      </nav>
       <div class="footer-contact">
-        <strong style="color:#fff;">株式会社TKG</strong>
+        <strong>株式会社TKG</strong>
         <span>ご担当：木佐 祐久</span>
         <span>TEL：090-9876-3643</span>
         <!-- TODO: メールアドレスの表記をクライアントに確認（gmail.comの"i"抜けの可能性） -->
