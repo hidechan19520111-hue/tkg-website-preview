@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>OGP画像の原版（1200×630）</title>
+<!-- ogp.png の原版。文言や背景を変えたら、Edgeのヘッドレスモードで撮り直す：
+     msedge --headless --hide-scrollbars --window-size=1200,630 --virtual-time-budget=8000
+            --screenshot=assets\ogp.png assets\ogp-source.html
+     （コマンド全文はREADME.mdの技術メモを参照） -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #05080f url("ogp-bg.png") center / cover no-repeat;
+    color: #f4f1e8;
+    font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(95deg, rgba(5, 8, 15, 0.9) 0%, rgba(5, 8, 15, 0.55) 46%, rgba(5, 8, 15, 0) 72%);
+  }
+  .inner { position: absolute; inset: 64px 72px; display: flex; flex-direction: column; }
+  .logo { height: 44px; width: auto; align-self: flex-start; }
+  .label {
+    margin-top: 84px;
+    display: flex; align-items: center; gap: 14px;
+    font-weight: 700; font-size: 21px; letter-spacing: 0.14em; color: #f2b632;
+  }
+  .label::before { content: ""; width: 11px; height: 11px; background: #f2b632; transform: rotate(45deg); }
+  h1 {
+    margin: 22px 0 0;
+    font-weight: 900; font-size: 78px; line-height: 1.2; letter-spacing: -0.02em;
+    font-feature-settings: "palt";
+  }
+  h1 em {
+    font-family: "Shippori Mincho B1", "Yu Mincho", serif;
+    font-style: normal; font-weight: 800; font-size: 1.5em; line-height: 0.9;
+    color: #f2b632; text-shadow: 0 0 44px rgba(242, 182, 50, 0.6);
+  }
+  .foot {
+    margin-top: auto;
+    display: flex; align-items: baseline; gap: 20px;
+    font-weight: 700; font-size: 23px; letter-spacing: 0.08em;
+  }
+  .foot span {
+    font-family: "Archivo", sans-serif; font-stretch: 112%; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.28em; color: #f2b632;
+  }
+</style>
+</head>
+<body>
+  <div class="inner">
+    <img class="logo" src="logo-mark-white.svg" alt="">
+    <div class="label">困りごと相談 × スポット業務委託</div>
+    <h1>その「困った」の<br>殻を、<em>割</em>る。</h1>
+    <div class="foot">株式会社TKG <span>TASK KISA GUILD</span></div>
+  </div>
+</body>
+</html>
